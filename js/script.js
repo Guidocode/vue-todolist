@@ -12,7 +12,7 @@
   del todo ~~sbarrato~~.
   
   **MILESTONE 2**
-  Visualizzare a fianco ad ogni item ha una “x”: cliccando su di essa, 
+  Visualizzare a fianco ad ogni item una “x”: cliccando su di essa, 
   il todo viene rimosso dalla lista.
   
   **MILESTONE 3**
@@ -49,5 +49,12 @@ const app = new Vue ({
         done: false
       }
     ] 
+  },
+
+  methods: {
+
+    deleteTodo(indice){
+      this.todos.splice(indice, 1);
+    }
   }
 })

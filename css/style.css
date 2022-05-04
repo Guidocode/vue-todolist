@@ -45,6 +45,7 @@ body{
 .container-list ul li i{
   cursor: pointer;
   color: grey;
+  font-size: 25px;
 }
 
 .container-list ul li i:hover{
