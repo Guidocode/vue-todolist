@@ -28,6 +28,7 @@
 
     <div class="input-group mb-3 gb-input">
       <!-- trimmo il v-model per togliere gli spazi all'inizio e alla fine della stringa inserita -->
+      <!-- con @keyup.enter intercetto il click del tasto enter e gli assegno la funzione di aggiunta del ToDo -->
       <input v-model.trim="textTodo" @keyup.enter="addTodo()" type="text" class="form-control" placeholder="Inserisci ToDo" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <button @click="addTodo()" class="btn btn-outline-secondary" type="button">Aggiungi</button>
