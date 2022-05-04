@@ -31,6 +31,7 @@ const app = new Vue ({
   el: '#app',
 
   data: {
+    nomi : [],
     todos:[
       {
         text: 'Studiare Vue js',
@@ -48,13 +49,38 @@ const app = new Vue ({
         text: 'Fare la spesa',
         done: false
       }
-    ] 
+    ],
+
+    textTodo: ''
   },
 
   methods: {
 
     deleteTodo(indice){
       this.todos.splice(indice, 1);
+    },
+
+    addTodo(){
+      // creo l'oggetto
+      const todo = {
+        // this.textTodo corrisponde a quello che
+        // l'utente scrive nell'input perché textTodo è dentro v-model 
+        text: this.textTodo,
+        done: false
+      };
+
+      //Creo una condizione per la quale pusho o mando un alert all'utente
+      if(this.textTodo.length > 1){
+        // pusho l'oggetto nell'array todos
+        this.todos.push(todo);
+      }else if(this.textTodo.length == 1){
+        alert('Scrivi una parola più lunga')
+      }else{
+        alert('Non hai scritto nulla..Scrivi qualcosa')
+      }
+      
+      //resetto il campo di imput
+      this.textTodo = '';
     }
   }
 })

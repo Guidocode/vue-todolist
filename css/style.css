@@ -12,8 +12,7 @@ body{
 
 .gb-input{
   width: 300px;
-  /* box-shadow: 0 0 5px grey; */
-  /* background-color: lightgrey; */
+  margin: 0 auto;
 }
 
 .container-list{

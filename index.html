@@ -27,9 +27,10 @@
     <h1 class="text-center py-5">ToDo List</h1>
 
     <div class="input-group mb-3 gb-input">
-      <input type="text" class="form-control" placeholder="Inserisci ToDo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <!-- trimmo il v-model per togliere gli spazi all'inizio e alla fine della stringa inserita -->
+      <input v-model.trim="textTodo" type="text" class="form-control" placeholder="Inserisci ToDo" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Inserisci</button>
+        <button @click="addTodo()" class="btn btn-outline-secondary" type="button">Aggiungi</button>
       </div>
     </div>
 
@@ -41,8 +42,11 @@
         </li>
       </ul>
     </div>
+    
 
   </div>
+
+
 
 
   <script src="./js/script.js"></script>
