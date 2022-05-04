@@ -54,3 +54,17 @@ body{
 .done{
   text-decoration: line-through;
 }
+
+h3 .fa-arrow-up{
+  font-size: 30px;
+  padding-bottom: 20px;
+  animation: movearrow 4s ease-in-out infinite;
+}
+
+@keyframes movearrow {
+  0%   {transform: scale(1)}
+  25%  {transform: scale(1.5)}
+  50%  {transform: scale(1)}
+  75%  {transform: scale(1.5)}
+  100% {transform: scale(1)}
+}

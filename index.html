@@ -28,7 +28,7 @@
 
     <div class="input-group mb-3 gb-input">
       <!-- trimmo il v-model per togliere gli spazi all'inizio e alla fine della stringa inserita -->
-      <input v-model.trim="textTodo" type="text" class="form-control" placeholder="Inserisci ToDo" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <input v-model.trim="textTodo" @keyup.enter="addTodo()" type="text" class="form-control" placeholder="Inserisci ToDo" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <button @click="addTodo()" class="btn btn-outline-secondary" type="button">Aggiungi</button>
       </div>
@@ -41,6 +41,9 @@
           <i @click="deleteTodo(index)" class="fa-solid fa-xmark"></i>
         </li>
       </ul>
+
+      <!--  Aggiungo una condizione per la quale se this.todos.lenght è minore di 1 scrivo che non ci sono toDo e dico puoi aggiungerlo -->
+      <h3 v-if="todos.length < 1" class="text-center"><i class="fa-solid fa-arrow-up"></i> <br> Non hai ToDo! Inseriscine uno!</h3>
     </div>
     
 
