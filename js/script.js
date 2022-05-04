@@ -31,7 +31,6 @@ const app = new Vue ({
   el: '#app',
 
   data: {
-    nomi : [],
     todos:[
       {
         text: 'Studiare Vue js',
@@ -51,7 +50,8 @@ const app = new Vue ({
       }
     ],
 
-    textTodo: ''
+    textTodo: '',
+    indexTodo: 0
   },
 
   methods: {
@@ -81,6 +81,15 @@ const app = new Vue ({
       
       //resetto il campo di imput
       this.textTodo = '';
+    },
+
+    // Inizio bonus 2
+    doneNotDone(indice){
+      // intercetto l'indice del todo cliccato
+      this.indexTodo = indice;
+      console.log(indice);
+
+      
     }
   }
 })

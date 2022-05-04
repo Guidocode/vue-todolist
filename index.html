@@ -38,7 +38,7 @@
     <div class="container-list my-5">
       <ul>
         <li v-for="(todo, index) in todos">
-          <span :class="todo.done ? 'done' : ''">{{todo.text}}</span>
+          <span @click="doneNotDone(index)" :class="todo.done ? 'done' : ''">{{todo.text}}</span>
           <i @click="deleteTodo(index)" class="fa-solid fa-xmark"></i>
         </li>
       </ul>
