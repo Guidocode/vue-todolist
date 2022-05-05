@@ -57,7 +57,11 @@ const app = new Vue ({
   methods: {
 
     deleteTodo(indice){
-      this.todos.splice(indice, 1);
+      // Prima di cancellare chiedo conferma: se ok lo cancello
+      if(confirm(`Sei sicuro di voler eliminare "${this.todos[indice].text}"?`)){
+        this.todos.splice(indice, 1);
+      };
+      
     },
 
     addTodo(){
@@ -83,11 +87,10 @@ const app = new Vue ({
       this.textTodo = '';
     },
 
-    // Inizio bonus 2
+    // Bonus 2
     doneNotDone(indice){
       // intercetto l'indice del todo cliccato
-      this.indexTodo = indice;
-      console.log(indice);
+      this.todos[indice].done = !this.todos[indice].done;
 
       
     }

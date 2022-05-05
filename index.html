@@ -28,7 +28,7 @@
 
     <div class="input-group mb-3 gb-input">
       <!-- trimmo il v-model per togliere gli spazi all'inizio e alla fine della stringa inserita -->
-      <!-- con @keyup.enter intercetto il click del tasto enter e gli assegno la funzione di aggiunta del ToDo -->
+      <!-- Bonus 1: con @keyup.enter intercetto il click del tasto enter e gli assegno la funzione di aggiunta del ToDo -->
       <input v-model.trim="textTodo" @keyup.enter="addTodo()" type="text" class="form-control" placeholder="Inserisci ToDo" aria-label="Recipient's username" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <button @click="addTodo()" class="btn btn-outline-secondary" type="button">Aggiungi</button>
@@ -37,9 +37,10 @@
 
     <div class="container-list my-5">
       <ul>
-        <li v-for="(todo, index) in todos">
-          <span @click="doneNotDone(index)" :class="todo.done ? 'done' : ''">{{todo.text}}</span>
-          <i @click="deleteTodo(index)" class="fa-solid fa-xmark"></i>
+        <li @click="doneNotDone(index)" v-for="(todo, index) in todos">
+          <span :class="todo.done ? 'done' : ''">{{todo.text}}</span>
+          <!-- .stop evita che l'evento si propaghi anche al text del todo -->
+          <i @click.stop="deleteTodo(index)" class="fa-solid fa-xmark"></i>
         </li>
       </ul>
 
